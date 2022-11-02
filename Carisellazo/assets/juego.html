@@ -7,7 +7,7 @@
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-	
+	<link rel="stylesheet" href="../css/prueba.css">
 	<link rel="stylesheet" type="text/css" href="../css/juego.css">
 <!--===============================================================================================-->
 </head>
@@ -21,11 +21,18 @@
 					CARISELLAZO
 					</span>
 
-					
+					<div class="moneda" id="moneda">
+						<div class="cara">
+							<img src="../img/cara.png">
+						</div>
+						<div class="sello">
+							<img src="../img/sello.png">
+						</div>
+					</div>
 
 					<div class="container-moneda100-form-btn">
 						<button class="moneda100-form-btn" >
-							<a href="#" class="hero__cta" id="jugar">jugar</a>
+							<a  class="hero__cta" id="jugar">jugar</a>
 						</button>
 					</div>
 					
@@ -36,18 +43,24 @@
 						
 						<h2 class="modal__title">¡Elije un ganador!</h2>
 						<button class="opc" >
-							<a href="juego.html" value="1" id="jugar">CARA</a>
+							<a href="juego.html" value="1" id="jugar" class="ya">CARA</a>
 						</button>
 						<button class="opc" >
-							<a href="juego.html"  value="2" id="jugar">SELLO</a>
+							<a href="juego.html"  value="0" id="jugar" class="ya">SELLO</a>
 						</button>
 						<a href="#" class="modal__close">Cerrar</a>
 					</div>
 				</section>
-			
 
-					
-					</div>
+				<div class="stats">
+					<p id="cara-count">cara: 0</p>
+					<p id="sello-count">sello: 0</p>
+				</div>
+				<div class="stats">
+				   <p id="cant-count">jugadas: 0</p>
+				   <p id="dinero-count">dinero: 0</p>
+			   </div>
+			</div>
 				</form>
 			</div>
 		</div>
@@ -55,7 +68,8 @@
 	
 	
 
-	<script src="../js/style.js"></script>
+	<script src="../js/juego.js"></script>
+	<script src="../js/modal.js"></script>
 
 </body>
 </html>
