@@ -372,10 +372,7 @@ color: #000108;
   margin-bottom: 10px;
 }
 
-.modal__img{
-  width: 90%;
-  max-width: 300px;
-}
+
 
 .modal__close{
   text-decoration: none;
@@ -393,3 +390,25 @@ color: #000108;
   color: #050505;
   background-color: #fff;
 }
+
+.moneda{
+  height: 150px;
+  width: 150px;
+  position: relative;
+  margin: 32px auto;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  }
+  .moneda img{
+  width: 145px;
+  }
+  .cara,.sello{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  }
+  .sello{
+  transform: rotateX(180deg);
+  }
