@@ -1,17 +1,17 @@
 
 @font-face {
   font-family: Ubuntu-Regular;
-  src: url('../fonts/ubuntu/Ubuntu-Regular.ttf'); 
+  src: url('../fonts/Ubuntu-Regular.ttf'); 
 }
 
 @font-face {
   font-family: Ubuntu-Bold;
-  src: url('../fonts/ubuntu/Ubuntu-Bold.ttf'); 
+  src: url('../fonts/Ubuntu-Bold.ttf'); 
 }
 
 @font-face {
   font-family: JosefinSans-Bold;
-  src: url('../fonts/JosefinSans/JosefinSans-Bold.ttf'); 
+  src: url('../fonts/JosefinSans-Bold.ttf'); 
 }
 
 
@@ -73,74 +73,13 @@ input {
 	border: none;
 }
 
-input[type="number"] {
-    -moz-appearance: textfield;
-    appearance: none;
-    -webkit-appearance: none;
-}
 
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
 
-textarea {
-  outline: none;
+
+
+button{
+
   border: none;
-}
-
-textarea:focus, input:focus {
-  border-color: transparent !important;
-}
-
-
-input::-webkit-input-placeholder { color: #1b3815;}
-input:-moz-placeholder { color: #1b3815;}
-input::-moz-placeholder { color: #1b3815;}
-input:-ms-input-placeholder { color: #1b3815;}
-
-textarea::-webkit-input-placeholder { color: #1b3815;}
-textarea:-moz-placeholder { color: #1b3815;}
-textarea::-moz-placeholder { color: #1b3815;}
-textarea:-ms-input-placeholder { color: #1b3815;}
-
-/*---------------------------------------------*/
-button {
-	outline: none !important;
-	border: none;
-	background: transparent;
-}
-
-button:hover {
-	cursor: pointer;
-}
-
-iframe {
-	border: none !important;
-}
-
-/*//////////////////////////////////////////////////////////////////
-[ Utility ]*/
-.txt1 {
-  font-family: Ubuntu-Regular;
-  font-size: 15px;
-  color: #999999;
-  line-height: 1.4;
-}
-
-.txt2 {
-  font-family: Ubuntu-Regular;
-  font-size: 15px;
-  color: #57b846;
-  line-height: 1.4;
-}
-
-.txt3 {
-  font-family: Ubuntu-Bold;
-  font-size: 15px;
-  color: #57b846;
-  line-height: 1.4;
-  text-transform: uppercase;
 }
 
 
@@ -221,8 +160,7 @@ iframe {
   width: 100%;
   background-color: #fff;
   border-radius: 27px;
-  position: relative;
-  z-index: 1;
+ 
   margin-top: 4rem
 }
 
@@ -232,7 +170,6 @@ iframe {
   color: #1b3815;
   line-height: 1.2;
 
-  position: relative;
   display: block;
   width: 100%;
   height: 55px;
@@ -264,6 +201,31 @@ margin-top: 4rem;
 
 }
 
+.opc{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 29px;
+  width: 19rem;
+  height: 50px;
+  background-color: #9cb4f7d5;
+  border-radius: 25px;
+
+  
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.opc:hover{ background-color: #82828363;
+color: #000108;
+}
+
 .moneda100-form-btn  {
   display: -webkit-box;
   display: -webkit-flex;
@@ -275,7 +237,7 @@ margin-top: 4rem;
   padding: 3rem;
   width: 100%;
   height: 50px;
-  background-color: #564495;
+  background-color: #56449536;
   border-radius: 25px;
 
   font-family: Ubuntu-Bold;
@@ -291,12 +253,60 @@ margin-top: 4rem;
 }
 
 .moneda100-form-btn:hover  {
-  background-color: #644e88;
+  background-color: #82828363;
+  color: #000108;
+  
 }
 
 
-.abtn{
+
+
+
+#jugar{
   
+  font-family: Ubuntu-Bold;
+  font-size: 20px;
+  color: rgb(250, 250, 250);
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-decoration: none;
+  
+}
+@media (max-width: 576px) {
+  .moneda100-form {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+.hero__main{
+  grid-area: content;
+  display: grid;
+  gap: 2em;
+  /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: 180px; 
+  align-items: center;
+}
+
+.hero__waves{
+  grid-area: content;
+  align-self: end;
+}
+
+.hero__title{
+  font-size: 2.6rem;
+  letter-spacing: 2px;
+}
+
+.hero__subtitle{
+  margin-top:1rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.hero__cta{
+
   font-family: Ubuntu-Bold;
   font-size: 20px;
   color: #fff;
@@ -304,10 +314,80 @@ margin-top: 4rem;
   text-transform: uppercase;
   text-decoration: none;
   margin-top: -1rem;
+  display: inline-block;
+ 
+ 
 }
-@media (max-width: 576px) {
-  .moneda100-form {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
+
+.hero__img{
+  width: 100%;
+}
+
+.modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #111111bd;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .6s .9s;
+  --transform: translateY(-100vh);
+  --transition: transform .8s;
+}
+
+.modal--show{
+  opacity: 1;
+  pointer-events: unset;
+  transition: opacity .6s;
+  --transform: translateY(0);
+  --transition: transform .8s .8s;
+}
+
+.modal__container{
+  margin: auto;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90%;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 3em 2.5em;
+  display: grid;
+  gap: 1em;
+  place-items: center;
+  grid-auto-columns: 100%;
+  transform: var(--transform);
+  transition:var(--transition);
+}
+
+.modal__title{
+  font-size: 2.5rem;
+}
+
+.modal__paragraph{
+  margin-bottom: 10px;
+}
+
+.modal__img{
+  width: 90%;
+  max-width: 300px;
+}
+
+.modal__close{
+  text-decoration: none;
+  color: rgb(12, 11, 11);
+  background-color: #ffffff;
+  padding: 1em 3em;
+  border: none ;
+  border-radius: 6px;
+  display: inline-block;
+  font-weight: 300;
+  transition: background-color .3s;
+}
+
+.modal__close:hover{
+  color: #050505;
+  background-color: #fff;
 }
