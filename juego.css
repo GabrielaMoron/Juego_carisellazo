@@ -1,17 +1,17 @@
 
 @font-face {
   font-family: Ubuntu-Regular;
-  src: url('../fonts/Ubuntu-Regular.ttf'); 
+  src: url('/Carisellazo/fonts/Ubuntu-Regular.ttf'); 
 }
 
 @font-face {
   font-family: Ubuntu-Bold;
-  src: url('../fonts/Ubuntu-Bold.ttf'); 
+  src: url('/Carisellazo/fonts/Ubuntu-Bold.ttf'); 
 }
 
 @font-face {
   font-family: JosefinSans-Bold;
-  src: url('../fonts/JosefinSans-Bold.ttf'); 
+  src: url('/Carisellazo/fonts/JosefinSans-Bold.ttf'); 
 }
 
 
