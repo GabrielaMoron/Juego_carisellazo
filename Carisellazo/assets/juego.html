@@ -1,75 +1,86 @@
-<!DOCTYPE html>
+
 <html lang="en">
-<head>
-	<title>moneda </title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="../css/prueba.css">
-	<link rel="stylesheet" type="text/css" href="../css/juego.css">
-<!--===============================================================================================-->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Juego Carisellazo</title>
+        <!--Google Fonts-->
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+        <!--estilos-->
+        <link rel="stylesheet" href="sweetalert2.min.css">
+        <link rel="stylesheet" href="../css/juego.css">
+        
+      
 </head>
 <body>
-	
-	<div class="limiter">
-		<div class="container-moneda100">
-			<div class="wrap-moneda100">
-				<form class="moneda100-form validate-form p-l-55 p-r-55 p-t-178">
-					<span class="moneda100-form-title">
-					CARISELLAZO
-					</span>
 
-					<div class="moneda" id="moneda">
-						<div class="cara">
-							<img src="../img/cara.png">
-						</div>
-						<div class="sello">
-							<img src="../img/sello.png">
-						</div>
-					</div>
+      <!--contenido-->
 
-					<div class="container-moneda100-form-btn">
-						<button class="moneda100-form-btn" >
-							<a  class="hero__cta" id="jugar">jugar</a>
-						</button>
-					</div>
-					
-				
-			
-				<section class="modal ">
-					<div class="modal__container">
-						
-						<h2 class="modal__title">¡Elije un ganador!</h2>
-						<button class="opc" >
-							<a href="juego.html" value="1" id="jugar" class="ya">CARA</a>
-						</button>
-						<button class="opc" >
-							<a href="juego.html"  value="0" id="jugar" class="ya">SELLO</a>
-						</button>
-						<a href="#" class="modal__close">Cerrar</a>
-					</div>
-				</section>
+    <div class="container">
+        <span class="moneda100-form-title">
+            <button id="reinicio-button">
+            FINALIZAR
+            </button>
+            CARISELLAZO
+          
+            </span>
+        <div class="moneda" id="moneda">
+            <div class="cara">
+                <img src="../img/cara.png">
+            </div>
+            <div class="sello">
+                <img src="../img/sello.png">
+            </div>
+        </div>
+        <!--contadores-->
+       
 
-				<div class="stats">
-					<p id="cara-count">cara: 0</p>
-					<p id="sello-count">sello: 0</p>
-				</div>
-				<div class="stats">
-				   <p id="cant-count">jugadas: 0</p>
-				   <p id="dinero-count">dinero: 0</p>
-			   </div>
-			</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	
-	
+        <!--eleccion-->
+      
+        
 
-	<script src="../js/juego.js"></script>
-	<script src="../js/modal.js"></script>
+            
+        <div class="buttons">
+            <button class="hero__cta">
+               APOSTAR
+            </button>
+            <button id="flip-button" >
+                LANZAR
+             </button>
+            
+            
+        </div>
+        
+    <div class="stats">
+        <p id="cara-count">cara: 0</p>
+        <p id="sello-count">sello: 0</p>
+    </div>
+    <div class="stats">
+       <p id="cant-count">jugadas: 0</p>
+       <p id="dinero-count">dinero: 0</p>
+   </div>
+  
+    </div>
+    
+    <section class="modal ">
+        <div class="modal__container">
+            
+            <h2 class="modal__title">¡Elije tu lado ganador!</h2>
+            <div class="apuesta" id="apuesta">
+                <input type="text" id="apuest" placeholder="0">$</input>
+            </div>
+                <select name="opcion" id="opcion">
+                    <option value="">Seleccione el lado de la moneda</option>
+                    <option id="lad" value="1">Cara</option>
+                    <option id="lad" value="0">Sello</option>
+                </select>
+                <button  class="modal__close">
+                    cerrar
+                 </button>
+        </div>
+    </section>
+    <script src="../js/modal.js"></script>
+    <script src="../js/juego.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </body>
 </html>

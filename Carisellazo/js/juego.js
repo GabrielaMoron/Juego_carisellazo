@@ -9,11 +9,13 @@ let reinicioBtn = document.querySelector("#reinicio-button");
 let apuestaInput = document.querySelector("#apuest");
 let opcionInput = document.querySelector("#opcion");
 
-//hacer girar la moneda
+//hacer girar la monedad
+
 girarBtn.addEventListener("click", () => {
     //validacion de campos
     if(apuestaInput.value !='' && opcionInput.value!=''){
 
+       do{
         let i = Math.floor(Math.random() * 2);
         cont++;
 
@@ -31,13 +33,13 @@ girarBtn.addEventListener("click", () => {
         setTimeout(function(){
             //si la opcion del usuario es igual al del random
             if(i===opcUsuario){
-                total+=apuestaUsu*2;
-                swal(`Felicidades, ganaste la moneda cayo en cara. ganaste ${apuestaUsu*2}. en total tienes: ${total}`);
+                total=apuestaUsu+=1000;
+                swal(`Felicidades, ganaste la moneda cayo en cara. ganaste $1000. en total tienes: ${total}`);
                 
                 //sino 
             } else{
-                total-=apuestaUsu;
-                swal(`lo sentimos, has perdido la moneda cayo en cara. perdiste ${apuestaUsu} en total tienes: ${total}`);
+                total=apuestaUsu-=1000;
+                swal(`lo sentimos, has perdido la moneda cayo en cara. perdiste $1000 en total tienes: ${total}`);
               
             }
         }, 3000);
@@ -48,12 +50,12 @@ girarBtn.addEventListener("click", () => {
         moneda.style.animation = "spin-sello 2s forwards";
         setTimeout(function(){
             if(i===opcUsuario){
-                total+=apuestaUsu*2;
-                swal(`Felicidades, ganaste la moneda cayo en sello. ganaste ${apuestaUsu*2}. en total tienes: ${total}`);
+                total=apuestaUsu+=1000;
+                swal(`Felicidades, ganaste la moneda cayo en sello. ganaste $1000. en total tienes: ${total}`);
                
             } else{
-                total-=apuestaUsu;
-                swal(`lo sentimos, has perdido la moneda cayo en sello. perdiste ${apuestaUsu} en total tienes: ${total}`);
+                total=apuestaUsu-=1000;
+                swal(`lo sentimos, has perdido la moneda cayo en sello. perdiste $1000 en total tienes: ${total}`);
                 
             }
         }, 3000);
@@ -61,7 +63,10 @@ girarBtn.addEventListener("click", () => {
     }
     setTimeout(updateStats, 3000);
     disableButton();
-    }else{
+    }while(total ===0 ){  swal('Upss, ya no tienes dinero, ingresa dinnero a tu apuesta')}
+}
+    
+    else{
         swal('Selecciona una opcion para jugar y un valor a apostar')
     }
     
