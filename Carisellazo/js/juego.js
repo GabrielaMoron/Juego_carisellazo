@@ -1,170 +1,109 @@
-/*leemos las entradas para apostar*/
-const opciones = document.getElementById("opciones");
-/*leemos las entradas de las opciones*/
-const caraOpcion = document.getElementById("cara");
-const selloOpcion = document.getElementById("sello");
+let cara = 0;
+let sello = 0;
+let cont=0;
+let total=0;
+let totalapuesta=0
+let moneda = document.querySelector(".moneda");
+let girarBtn = document.querySelector("#flip-button");
+let reinicioBtn = document.querySelector("#reinicio-button");
+let apuestaInput = document.querySelector("#apuest");
+let opcionInput = document.querySelector("#opcion");
 
-const boton = document.getElementById('apostar');
+//hacer girar la moneda
+girarBtn.addEventListener("click", () => {
+    //validacion de campos
+    if(apuestaInput.value !='' && opcionInput.value!=''){
 
-/*leemos la entrada del resultado*/
-const resultadoJuego = document.getElementById("resultado");
+        let i = Math.floor(Math.random() * 2);
+        cont++;
 
-var valor = document.getElementById('valorApostar').value;
+    moneda.style.animation = "none";
+    //almacena la opcion del usuario
+    let opcUsuario=parseInt(opcionInput.value)
+    //almacena lo que gano por apuesta
+    let apuestaUsu=parseInt(apuestaInput.value)
+    //total del dinero que aporto
+    totalapuesta+=apuestaUsu;
+    
+    if(i){
+        //animacion de la moneda con duracion de 2 segundos
+        moneda.style.animation = "spin-cara 2s forwards";
+        setTimeout(function(){
+            //si la opcion del usuario es igual al del random
+            if(i===opcUsuario){
+                total+=apuestaUsu*2;
+                swal(`Felicidades, ganaste la moneda cayo en cara. ganaste ${apuestaUsu*2}. en total tienes: ${total}`);
+                
+                //sino 
+            } else{
+                total-=apuestaUsu;
+                swal(`lo sentimos, has perdido la moneda cayo en cara. perdiste ${apuestaUsu} en total tienes: ${total}`);
+              
+            }
+        }, 3000);
+        cara++;
 
-var total;
-
-var confirmar = 1;
-var cont = 0;
-
-//iniciamos el juego
-boton.addEventListener('click', ()=>{
-    opciones.classList.replace("opciones","opcionesAparecer");  
+    }
+    else{
+        moneda.style.animation = "spin-sello 2s forwards";
+        setTimeout(function(){
+            if(i===opcUsuario){
+                total+=apuestaUsu*2;
+                swal(`Felicidades, ganaste la moneda cayo en sello. ganaste ${apuestaUsu*2}. en total tienes: ${total}`);
+               
+            } else{
+                total-=apuestaUsu;
+                swal(`lo sentimos, has perdido la moneda cayo en sello. perdiste ${apuestaUsu} en total tienes: ${total}`);
+                
+            }
+        }, 3000);
+        sello++;
+    }
+    setTimeout(updateStats, 3000);
+    disableButton();
+    }else{
+        swal('Selecciona una opcion para jugar y un valor a apostar')
+    }
+    
 });
 
-    caraOpcion.addEventListener("click", () =>{
-        iniciarJuego('cara');
-    });
 
-    selloOpcion.addEventListener("click", () =>{
-        iniciarJuego('sello');
-    });
 
-    function iniciarJuego(opcion){
-    //movimiento pc
-    const movPC = movimientoPc();
-    //movimiento usuario
-    const movUsuario = opcion;
-    //comparacion de movimiento
-    const comp = compracion(movPC, movUsuario);
-    //resultado
-    if (comp == 1) {
-        valor = valor * 2;
-        resultadoJuego.innerHTML = "<br> <span class='ganador'>Usted a ganado, la moneda cayo en "+ movPC+ " y tu tienes un valor de "+valor+"</span>";
+//genera el cambio 
 
-    }
-    else if (comp == 2) {
-        valor = valor - valor;
-        resultadoJuego.innerHTML = "<br> <span class='perdedor'>Usted a perdido, la moneda cayo en "+ movPC+ " y tienes un valor de "+valor+"</span>";
-    }
-}
-function movimientoPc(){
-    const opciones = ['cara', 'sello'];
-    const random = Math.floor(Math.random()*2);
-    const mov = opciones[random];
-    return (mov);
+
+function updateStats(){
+    document.querySelector("#cara-count").textContent = `cara: ${cara}`;
+    document.querySelector("#sello-count").textContent = `sello: ${sello}`;
+    document.querySelector("#cant-count").textContent = `jugadas: ${cont}`;
+    document.querySelector("#dinero-count").textContent = `dinero: ${total}`;
+   
 }
 
-function compracion(pc, usuario){
-    switch (usuario+pc){
-        case 'caracara':
-        case 'sellosello':
-            return 1; //gana
-        case 'carasello':
-        case 'sellocara':
-            return 2; //pierde
-    }
+function disableButton(){
+   girarBtn.disabled = true;
+    setTimeout(function(){
+       girarBtn.disabled = false;
+    },3000);
 }
-/*
-const opciones = document.getElementById("opciones");
-const caraOpcion = document.getElementById("cara");
-const selloOpcion = document.getElementById("sello");
-const resultadoJuego = document.getElementById("resultado");
-const boton = document.getElementById('apostar');
-var i = 0;
-boton.addEventListener('click', ()=>{
-      var valor = document.getElementById('valorApostar').value;
-      if(valor > 1999){
-        opciones.classList.replace("opciones","opcionesAparecer");  
-            var confir = false;
+
+//reiniciar la partida 
+reinicioBtn.addEventListener("click",() => {
+    swal(`Resumen de la partida: cantidad de partidas${cont}, dinero acumulado por apuestas: ${totalapuesta} monto final: ${total}`)
+    .then((result) => {
+        
+            window.location.href = "./index.html";
             
-                while(confir == true){ 
-                    caraOpcion.addEventListener('click', ()=>{
-                        confir = window.confirm("¿Desea Continuar?");  
-                    })
-                    
-                }         
-      }else{
-            Swal.fire({title:"Por favor ingrese un cantidad de dinero mayor o igual a 2000!!"});
-      }
-      function movimientoPc(){
-        const opciones = ['cara', 'sello'];
-        const random = Math.floor(Math.random()*2);
-        const mov = opciones[random];
-        return (mov);
-    }
-    function iniciarJuego(opcion){
+        
+      })
+      
     
-        //movimiento pc
-        const movPC = movimientoPc();
-        //movimiento usuario
-        const movUsuario = opcion;
-        //comparacion de movimiento
-        const comp = compracion(movPC, movUsuario);
-        //resultado
-        if (comp == 1) {
-            resultadoJuego.innerHTML = "<br> <span class='ganador'>Usted a ganado, la moneda cayo en "+ movPC+ " </span>";
-            var valorSuma = (apostar + valorSuma) * 2;
-        }
-        else if (comp == 2) {
-            resultadoJuego.innerHTML = "<br> <span class='perdedor'>Usted a perdido, la moneda cayo en "+ movPC+ " </span>";
-            var valorSuma = apostar - valorSuma;
-        }
-    }
-    
-    function compracion(pc, usuario){
-        switch (usuario+pc){
-            case 'caracara':
-            case 'sellosello':
-                return 1; //gana
-            case 'carasello':
-            case 'sellocara':
-                return 2; //pierde
-        }
-    }    
 })
-const boton = document.getElementById('apostar');
-var opcion = 0; 
-var i = 0;
-boton.addEventListener('click', ()=>{
-    var valor = document.getElementById('valorApostar').value;
-    var total= valor;
-    var confir = true;
-    if (valor >= 5000) 
-    {
-        while(confir == true)
-        {
-            i++
-            var rando =  Math.random()*2;
-            var moneda = rando.toPrecision(1);
-            console.log(moneda);
-            parseInt(opcion); 
-            total = parseInt(total);
-            valor = parseInt(valor);
-            opcion = prompt(`Eliga: \n 1. Cara \n 2. Sello`);  
-            if(moneda == opcion)
-            {       
-                total = total + valor;  
-                window.alert(`¡¡Usted ha ganado!!`);
-            }
-            else
-            {
-                    total = total - valor 
-                    window.alert(`¡¡Usted ha perdido!!`);
-            }
-            console.log(`${total}`);
-            
-            confir = window.confirm("¿Desea Continuar?");  
-            if(total <= -100000)
-            {
-                confir = false;
-                window.alert(`Haz tenido mala suerte perdiste ${total}$ pesos y haz jugado ${i}`);
-                window.alert(`GRACIAS POR JUGAR!!`);
-            }
-        }     
-        if(total > 0)
-        {
-            window.alert(`Usted jugo ${i} vece(s) y le quedo ${total}$ pesos`);
-            window.alert(`GRACIAS POR JUGAR!!`);
-        } 
-    }
-})*/
+
+
+
+ 
+
+   
+        
+    
