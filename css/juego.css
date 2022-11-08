@@ -1,17 +1,17 @@
 
 @font-face {
   font-family: Ubuntu-Regular;
-  src: url('/Carisellazo/fonts/Ubuntu-Regular.ttf'); 
+  src: url('../fonts/Ubuntu-Regular.ttf'); 
 }
 
 @font-face {
   font-family: Ubuntu-Bold;
-  src: url('/Carisellazo/fonts/Ubuntu-Bold.ttf'); 
+  src: url('../fonts/Ubuntu-Bold.ttf'); 
 }
 
 @font-face {
   font-family: JosefinSans-Bold;
-  src: url('/Carisellazo/fonts/JosefinSans-Bold.ttf'); 
+  src: url('../fonts/JosefinSans-Bold.ttf'); 
 }
 
 
@@ -68,37 +68,37 @@ body, html {
 }
 
 
-.bannerg {
+.abr {
   background: url(../img/banner2.png) no-repeat;
 
 color:#ffffff;
 text-align: center;
 width: 100%;
 }
-.bannerg-overlay {
+.abr-overlay {
 
 padding:195px 0px 170px;
 }
 
-.bannerg h1 {
+.abr h1 {
       font-size:Ubuntu-Bold;
 color:#141212;
 }
-.bannerg p {
+.abr p {
 margin:15px auto 15px;
 max-width: 670px
 }
-.bannerg-btn {
+.abr-btn {
   background: rgb(164, 156, 240);
   padding: 12px 58px;
-  font-size: 20px;
-  border-radius: 30px;
-  margin-top: 17px;
-  margin-left: -2rem;
+  font-size: 22px;
+    border-radius: 30px;
+    margin-top: 28px;
+    margin-left: 7rem;
   color: #fff;
   font-family: 'Ubuntu-Bold';
 }
-.bannerg-btn:hover {
+.abr-btn:hover {
 
 color:#272629;
 }
@@ -198,7 +198,7 @@ input {
   
 
 }
-#opcion {
+#opc {
   width: 19rem;
   padding: 20px;
   margin: 21px 0 22px 0;
@@ -209,7 +209,7 @@ input {
   font-family: Ubuntu-Regular;
   font-size: 1rem;
 }
-#opcion:hover{
+#opc:hover{
   background: #cec3e7;
   color: rgb(12, 12, 12);
   border:none ;
@@ -219,10 +219,11 @@ select {
   border: none;
 }
 
+
 .swal-button {
   background-color: #a68edf;
   color: #fff;
-  border: none;
+  border: #e1e0ee;
   box-shadow: none;
   border-radius: 5px;
   font-weight: 600;
@@ -231,11 +232,29 @@ select {
   margin: 0;
   cursor: pointer;
   margin-left: 3rem;
-  margin-right: 9rem;
+  margin-right:15rem;
+}
+.swal-button-container {
+  margin: -96px;
+  display: inline-block;
+  position: relative;}
+
+.swal-button:not([disabled]):hover {
+  background-color: #c4baed;
+  border-color: #e1e0ee;
 }
 .swal-button:hover{
-  background: #e7e7e7;
-  color: #a68edf;
+  background: #f1f1f1;
+  color: #fcfcfc;
+}
+
+.swal-overlay--show-modal .swal-modal {
+    opacity: 1;
+    pointer-events: auto;
+    box-sizing: border-box;
+    -webkit-animation: showSweetAlert .5s;
+    animation: showSweetAlert .5s;
+    will-change: transform;
 }
 @keyframes spin-sello{
 0%{
@@ -293,11 +312,12 @@ color: #101020;
   color: #020202;
   flex-direction: column;
   background: #fff;
-  margin-top: -2rem;
-  margin-left: 3rem;
+  margin-top: 0rem;
+  margin-left: 2rem;
   font-size: 12px;
-  padding-bottom: 3rem;
+  padding-bottom: 1rem;
   font-family: JosefinSans-bold;
+  text-decoration: none;
  
 
 }
@@ -347,34 +367,34 @@ color: #101020;
   }
   
   
-  .bannerg {
+  .abr {
       background: url(../img/banner2.png) no-repeat;
       
       color:#ffffff;
       text-align: center;
       width: 100%;
   }
-  .bannerg-overlay {
+  .abr-overlay {
       
       padding:195px 0px 170px;
   }
   
-  .bannerg h1 {
+  .abr h1 {
           font-size: xxx-large;
       color:#ffffff;
   }
-  .bannerg p {
+  .abr p {
       margin:15px auto 15px;
       max-width: 670px
   }
-  .bannerg-btn {
+  .abr-btn {
       background: #e7e7e7;
       padding: 12px 58px;
       font-size: 16px;
       border-radius: 30px;
       margin-top: -15px;
   }
-  .bannerg-btn:hover {
+  .abr-btn:hover {
       background: #ffffff;
       color:#ab2f52;
   }
@@ -438,7 +458,7 @@ color: #101020;
       background: #e7e7e7;
       border-radius: 50px;
   }
-  #opcion {
+  #opc {
       width: 100%;
       padding: 11px;
       margin: -7px 0 22px 0;
@@ -482,6 +502,7 @@ color: #101020;
   margin-left: 1rem;
   font-size: 13px;
   font-family: JosefinSans-bold;
+  text-decoration: none;
  
 
 }
@@ -494,6 +515,16 @@ color: #101020;
 
 
 
+}
+
+.abr__main{
+  grid-area: content;
+  display: grid;
+  gap: 2em;
+  /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: 180px; 
+  align-items: center;
 }
 
 .hero__main{
@@ -543,6 +574,25 @@ border-color: #e1e0ee;
 color: #101020;
 }
 
+#jugar{
+
+  display: flex;
+  justify-content: center;
+  background-color: rgb(168 145 231);
+  color: #ffffff;
+  font-family: Ubuntu-Bold;
+  border: none;
+  align-items: center;
+  border-radius: 3rem;
+ 
+ 
+}
+
+#jugar:hover  {
+background-color: #e1e0ee;
+border-color: #e1e0ee;
+color: #101020;
+}
 .hero__img{
   width: 100%;
 }

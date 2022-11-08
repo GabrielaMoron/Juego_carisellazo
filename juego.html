@@ -7,7 +7,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet">
         <!--estilos-->
         <link rel="stylesheet" href="sweetalert2.min.css">
-        <link rel="stylesheet" href="../css/juego.css">
+        <link rel="stylesheet" href="css/juego.css">
         
       
 </head>
@@ -17,18 +17,16 @@
 
     <div class="container">
         <span class="moneda100-form-title">
-            <button id="reinicio-button">
-            FINALIZAR
-            </button>
+         <a id="reinicio-button"   href="index.html">FINALIZAR</a>  
             CARISELLAZO
           
             </span>
         <div class="moneda" id="moneda">
             <div class="cara">
-                <img src="../img/cara.png">
+                <img src="img/cara.png">
             </div>
             <div class="sello">
-                <img src="../img/sello.png">
+                <img src="img/sello.png">
             </div>
         </div>
         <!--contadores-->
@@ -66,18 +64,20 @@
             
             <h2 class="modal__title">¡Elije tu lado ganador!</h2>
             <div class="apuesta" id="apuesta">
-                <input type="text" id="apuest" placeholder="0">$</input>
+                $<input type="text" id="apuest" placeholder="0"></input>
             </div>
-                <select name="opcion" id="opcion">
+                <select name="opc" id="opc">
                     <option value="">Seleccione el lado de la moneda</option>
                     <option id="lad" value="1">Cara</option>
                     <option id="lad" value="0">Sello</option>
                 </select>
                 <button  class="modal__close">
-                    cerrar
+                    CERRAR
                  </button>
         </div>
     </section>
+
+   
     <script src="../js/modal.js"></script>
     <script src="../js/juego.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
