@@ -10,6 +10,6 @@ openModal.addEventListener('click', (e)=>{
 closeModal.addEventListener('click', (e)=>{
     e.preventDefault();
     modal.classList.remove('modal--show');
-   window.location.href="./juego.html";
+   window.location.href="Juego_carisellazo/juego.html";
    
 });
